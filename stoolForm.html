@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STOOL</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f8f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        #stoolForm {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+        }
+
+        #stoolForm h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        #stoolForm h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #673ab7;
+            border-radius: 2px;
+        }
+
+
+    /* CSS for Form Header */
+    #stoolForm header {
+        background-color: #593694;
+        color: #fff;
+       padding: 15px;
+       border-radius: 5px;
+       margin-bottom: 20px;
+       display: flex;
+       justify-content: space-between;
+}
+
+      .header-column {
+          width: 49%; /* Adjusted width for better alignment */
+      }
+      .form-column {
+            display: inline-block;
+            width: 49%;
+            vertical-align: top;
+        }
+
+      header label {
+          color: #fff;
+        }
+
+    #stoolForm label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    #stoolForm input[type="text"],
+    #stoolForm input[type="date"],
+    #stoolForm select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-bottom: 15px;
+        font-size: 14px;
+    }
+
+        #stoolForm input[type="text"]:focus,
+        #stoolForm input[type="date"]:focus,
+        #stoolForm select:focus {
+            border-color: #673ab7;
+            outline: none;
+        }
+
+
+    #stoolForm input[type="submit"] {
+            background-color: #673ab7;
+            color: #fff;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin: 0 auto;
+        }
+
+        #stoolForm input[type="submit"]:hover {
+            background-color: #673ab7;
+        }
+
+        #stoolForm input[type="submit"] i {
+            margin-right: 8px;
+        }
+
+    #stoolForm h6 {
+        color: #673ab7;
+        border: 1px solid #673ab7;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        display: inline-block;
+    }
+
+    #stoolForm label i {
+        margin-right: 5px;
+        color: #ec371f;
+    }
+    </style>
+</head>
+<body>
+    <div id="stoolForm">
+      <form method="POST" action="/pathologylab-main/submit_stool.php">
+            <h2><i class="fas fa-microscope"></i> STOOL</h2>
+            <header>
+              <div class="header-column">
+                  <label for="patient-name"><i class="fas fa-user"></i> Patient Name</label>
+                  <input type="text" id="patient-name" name="patient-name" required>
+                  <label for="uhid"><i class="fas fa-id-card"></i> UHID</label>
+                  <input type="text" id="uhid" name="uhid" required>
+                  <label for="refBy"><i class="fas fa-user-md"></i> REF. BY</label>
+                  <input type="text" name="refBy" id="refBy">
+                  <label for="age"><i class="fas fa-calendar-alt"></i> Age</label>
+                  <input type="text" id="age" name="age" required>
+              </div>
+              <div class="header-column">
+                  <label for="date"><i class="fas fa-calendar-day"></i> Date</label>
+                  <input type="date" id="date" name="date" required>
+                  <label for="material"><i class="fas fa-vial"></i> Material</label>
+                  <input type="text" id="material" name="material" required>
+                  <label for="gender"><i class="fas fa-venus-mars"></i> Gender</label>
+                  <select id="gender" name="gender" required>
+                      <option value="">Select Gender</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                  </select>
+              </div>
+          
+      </header>
+        <div class="form-column">
+            <h6><i class="fas fa-eye"></i> PHYSICAL EXAMINATION</h6>
+            <label for="colour"><i class="fas fa-palette"></i> COLOUR</label>
+            <input type="text" name="colour" id="colour">
+            <label for="consistency"><i class="fas fa-vector-square"></i> CONSISTENCY</label>
+            <input type="text" name="consistency" id="consistency">
+            <label for="mucus"><i class="fas fa-toilet"></i> MUCUS</label>
+            <input type="text" name="mucus" id="mucus">
+            <label for="frank-blood"><i class="fas fa-tint"></i> FRANK BLOOD</label>
+            <input type="text" name="frank-blood" id="frank-blood">
+            
+            <h6><i class="fas fa-flask"></i> CHEMICAL EXAMINATION</h6><p></p>
+            <label for="reducing-substances"><i class="fas fa-vial"></i> REDUCING SUBSTANCES</label>
+            <input type="text" name="reducing-substances" id="reducing-substances">
+            <label for="reaction"><i class="fas fa-lightbulb"></i> REACTION</label>
+            <input type="text" name="reaction" id="reaction">
+            <label for="occult-blood-test"><i class="fas fa-tint"></i> OCCULT BLOOD TEST</label>
+            <input type="text" name="occult-blood-test" id="occult-blood-test">
+            <label for="ph"><i class="fas fa-tint"></i> PH</label>
+            <input type="text" name="ph" id="ph">
+        </div>
+        <div class="form-column">
+            <h6><i class="fas fa-microscope"></i> MICROSCOPIC EXAMINATION</h6>
+            <label for="ova"><i class="fas fa-egg"></i> OVA</label>
+            <input type="text" name="ova" id="ova">
+            <label for="cyst"><i class="fas fa-circle"></i> CYST</label>
+            <input type="text" name="cyst" id="cyst">
+            <label for="protozoa"><i class="fas fa-bug"></i> PROTOZOA</label>
+            <input type="text" name="protozoa" id="protozoa">
+            <label for="vegetable-cell"><i class="fas fa-leaf"></i> VEGETABLE CELL</label>
+            <input type="text" name="vegetable-cell" id="vegetable-cell"><p></p>
+            <label for="pus-cell"><i class="fas fa-virus"></i> PUS CELL</label>
+            <input type="text" name="pus-cell" id="pus-cell">
+            <br>
+            <label for="rbc">R B C</label>
+            <input type="text" name="rbc" id="rbc">
+            <label for="micro-organism">MICRO ORGANISM</label>
+            <input type="text" name="micro-organism" id="micro-organism">
+            <label for="starch">STARCH</label>
+            <input type="text" name="starch" id="starch">
+            <label for="fat">FAT</label>
+            <input type="text" name="fat" id="fat">
+            <label for="others">OTHERS</label>
+            <input type="text" name="others" id="others">       
+
+        </div>
+        <input type="submit" class="submit">
+    </form>
+ </div>
+</body>
+</html>

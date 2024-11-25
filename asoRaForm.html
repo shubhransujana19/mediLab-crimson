@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASO RA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f8f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        #asoRaForm {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+        }
+
+        #asoRaForm h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        #asoRaForm h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #3498db;
+            border-radius: 2px;
+        }
+
+        #asoRaForm header {
+            background-color: #3498db;
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .header-column {
+            width: 49%;
+        }
+
+        .form-column {
+            display: inline-block;
+            width: 49%;
+            vertical-align: top;
+        }
+
+        #asoRaForm label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        #asoRaForm input[type="text"],
+        #asoRaForm input[type="date"],
+        #asoRaForm select,
+        #asoRaForm textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        #asoRaForm input[type="text"]:focus,
+        #asoRaForm input[type="date"]:focus,
+        #asoRaForm select:focus,
+        #asoRaForm textarea:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        #asoRaForm input[type="submit"] {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin: 0 auto;
+        }
+
+        #asoRaForm input[type="submit"]:hover {
+            background-color: #3498db;
+        }
+
+        #asoRaForm input[type="submit"] i {
+            margin-right: 8px;
+        }
+
+        #asoRaForm label i {
+            margin-right: 5px;
+            color: #8e2db4;
+        }
+    </style>
+</head>
+<body>
+    <div id="asoRaForm">
+        <form action="/pathologylab-main/submit_asoRa.php" method="post">
+            <h2><i class="fas fa-flask"></i> ASO/RA</h2>
+
+            <header>
+                <div class="header-column">
+                    <label for="patient-name"><i class="fas fa-user"></i> Patient Name </label>
+                    <input type="text" id="patient-name" name="patient-name" required>
+                    <label for="uhid"><i class="fas fa-id-card"></i> UHID </label>
+                    <input type="text" id="uhid" name="uhid" required>
+                    <label for="refBy"><i class="fas fa-user-md"></i> REF. BY</label>
+                    <input type="text" name="refBy" id="refBy">
+                    <label for="age"><i class="fas fa-calendar-alt"></i> Age </label>
+                    <input type="text" id="age" name="age" required>
+                </div>
+                <div class="header-column">
+                    <label for="date"><i class="fas fa-calendar-day"></i> Date </label>
+                    <input type="date" id="date" name="date" required>
+                    <label for="material"><i class="fas fa-vial"></i> Material </label>
+                    <input type="text" id="material" name="material" required>
+                    <label for="gender"><i class="fas fa-venus-mars"></i> Gender </label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+            </header>
+
+            <div class="form-column">
+                <label for="bsugarf"><i class="fas fa-tint"></i> B.SUGAR(F)</label>
+                <input type="text" id="bsugarf" name="bsugarf">
+                <label for="bsugarr"><i class="fas fa-tint"></i> B.SUGAR(R)</label>
+                <input type="text" id="bsugarr" name="bsugarr">
+            </div>
+            <div class="form-column">
+                <label for="uric-acid"><i class="fas fa-tint"></i> URIC ACID</label>
+                <input type="text" id="uric-acid" name="uric-acid">
+            </div>
+
+            <div class="form-group">
+                <label for="details"><i class="fas fa-info-circle"></i> Details</label>
+                <textarea class="form-control" id="details" name="details" cols="100" rows="15">
+S E R U M   F O R   "ASO"   T I T R E   T E S T
+
+"ASO" TITRE SHOWS 205.3 IU/MI OF BLOOD.
+
+(NORMAL UPTO 200 IU/MI OF BLOOD)
+
+S E R U M   F O R   "RA"   F A C T O R   T E S T    
+
+"RA" FACTOR SHOWS 10.5 IU/MI OF BLOOD.
+
+(NORMAL UPTO 20 IU/MI OF BLOOD)
+
+    -: END OF  REPORT :-
+                </textarea>
+            </div>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>

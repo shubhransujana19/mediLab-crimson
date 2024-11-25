@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SEMEN 2</title>
+    
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+        <style>
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+          body {
+              font-family: 'Poppins', sans-serif;
+              background-color: #f0f2f5;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              min-height: 100vh;
+          }
+  
+          #semen2 {
+              background-color: #fff;
+              padding: 30px;
+              border-radius: 10px;
+              box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+              max-width: 900px;
+              width: 100%;
+          }
+  
+          #semen2 header {
+              background-color: #FD358C;
+              color: #fff;
+              padding: 20px;
+              border-radius: 8px;
+              margin-bottom: 30px;
+              text-align: center;
+              position: relative;
+              overflow: hidden;
+          }
+  
+          #semen2 header h2 {
+              margin: 0;
+              font-size: 32px;
+              font-weight: 600;
+              position: relative;
+              z-index: 1;
+          }
+  
+          #semen2 header:before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"%3E%3Cpath fill="%231abc9c" d="M0 0h200v200H0z"/%3E%3Cpath fill="none" stroke="%23fff" stroke-width="2" d="M20 20h160v160H20z"/%3E%3C/svg%3E');
+              background-size: 60px 60px;
+              opacity: 0.2;
+              z-index: 0;
+          }
+  
+          #semen2 .form-row {
+              display: flex;
+              flex-wrap: wrap;
+              margin-bottom: 20px;
+          }
+  
+          #semen2 .form-column {
+              flex: 1;
+              padding: 0 15px;
+          }
+  
+          #semen2 label {
+              display: block;
+              font-weight: 600;
+              margin-bottom: 8px;
+              color: #555;
+          }
+  
+          #semen2 input[type="text"],
+          #semen2 input[type="date"],
+          #semen2 select,
+          #semen2 textarea {
+              width: 100%;
+              padding: 12px;
+              border: 1px solid #ddd;
+              border-radius: 6px;
+              box-sizing: border-box;
+              font-size: 14px;
+              transition: border-color 0.3s ease;
+          }
+  
+          #semen2 input[type="text"]:focus,
+          #semen2 input[type="date"]:focus,
+          #semen2 select:focus,
+          #semen2 textarea:focus {
+              border-color: #FD358C;
+              outline: none;
+          }
+  
+          #semen2 input[type="submit"] {
+              background-color: #FD358C;
+              color: #fff;
+              border: none;
+              padding: 14px 30px;
+              border-radius: 6px;
+              cursor: pointer;
+              font-size: 16px;
+              transition: background-color 0.3s ease;
+              display: block;
+              margin: 0 auto;
+          }
+  
+          #semen2 input[type="submit"]:hover {
+              background-color: #FD358C;
+          }
+  
+          #semen2 input[type="submit"] i {
+              margin-right: 8px;
+          }
+  
+          #semen2 h6 {
+              color: #FD358C;
+              border-bottom: 2px solid #FD358C;
+              padding-bottom: 5px;
+              font-size: 18px;
+              font-weight: 600;
+              margin-bottom: 15px;
+              display: flex;
+              align-items: center;
+          }
+  
+          #semen2 h6 i {
+              margin-right: 8px;
+          }
+  
+          #semen2 label i {
+              margin-right: 5px;
+              color: #FD358C;
+          }
+
+      </style>
+      
+    
+    </head>
+    <body>
+        <div id="semen2">
+            <header>
+                <h2>
+                  <i class="fas fa-mars"></i> Semen 2 Analysis
+                 </h2>
+            </header>
+
+            <form action="/pathologylab-main/submit_semen2.php" method="post">
+              <div class="form-row">
+                  <div class="form-column">
+                      <label for="patient-name"><i class="fas fa-user"></i> Patient Name <span class="text-danger" style="color:#FD3535;">*</span></label>
+                      <input type="text" id="patient-name" name="patient-name" required>
+                      <label for="uhid"><i class="fas fa-id-card"></i> UHID <span class="text-danger" style="color:#FD3535;">*</span></label>
+                      <input type="text" id="uhid" name="uhid" required>
+                      <label for="refBy"><i class="fas fa-user-md"></i> REF. BY</label>
+                      <input type="text" name="refBy" id="refBy">
+                      <label for="age"><i class="fas fa-calendar-alt"></i> Age <span class="text-danger" style="color:#FD3535;">*</span></label>
+                      <input type="text" id="age" name="age" required>
+                  </div>
+                  <div class="form-column">
+                      <label for="date"><i class="fas fa-calendar-day"></i> Date <span class="text-danger" style="color:#FD3535;">*</span></label>
+                      <input type="date" id="date" name="date" required>
+                      <label for="material"><i class="fas fa-vial"></i> Material <span class="text-danger" style="color:#FD3535;">*</span></label>
+                      <input type="text" id="material" name="material" required>
+                      <label for="gender"><i class="fas fa-venus-mars"></i> Gender <span class="text-danger" style="color:#FD3535;">*</span></label>
+                      <select id="gender" name="gender" required>
+                          <option value="">Select Gender</option>
+                          <option value="male">Male</option>
+                          <option value="female">Female</option>
+                      </select>
+                  </div>
+              </div>
+      
+            <div class="form-row">
+              <div class="form-column">
+                <label for="details" class="form-label"><i class="fas fa-info-circle"></i> Details</label>
+                <textarea class="form-control" id="details" name="details" cols="110" rows="25">
+               
+                S E M E N  A N A L Y S I S 
+
+                COLLECTION TIME: -       06 - 30 A.M.
+                
+                LIQUEFICATION TIME: -    07 - 00 A.M.
+                
+                COLOUR: -                 MILLKY WHITE
+                
+                VOLUME:-                  3.0 MI.
+                
+                REACTION:-               AQLKALINE.
+                
+                
+                ACTIVE  MORTILE  SPARMATOZOA :- 60 %.
+                
+                
+                DAUBLE TAIL:-                5   %.
+                
+                DOUBLE HEAD:-              5   %.
+                
+                OTHERS:-                       30 %.
+                
+                TOTAL COUNT OF SPARMATOZOA  :-  05 MILLION / ML. 
+                
+                PUS CELLS:-               2-3 / H.P.F.
+                
+                EPITHELIAL CELLS:-                        2 - 3 / H.P.F.
+                
+                                
+                        -: END OF REPORT :- 
+
+            </textarea>
+        <p>&nbsp;</p>
+            <input type="submit" class="submit">
+        </div>
+        </div>
+        </form>
+        </div>
+        </body>
+        </html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WIDAL TEST</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        #widalForm {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+        }
+
+        #widalForm header {
+            background-color: #e67e22;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #widalForm header h2 {
+            margin: 0;
+            font-size: 32px;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        #widalForm header:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"%3E%3Cpath fill="%23e67e22" d="M0 0h200v200H0z"/%3E%3Cpath fill="none" stroke="%23fff" stroke-width="2" d="M20 20h160v160H20z"/%3E%3C/svg%3E');
+            background-size: 60px 60px;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        #widalForm .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        #widalForm .form-column {
+            flex: 1;
+            padding: 0 15px;
+        }
+
+        #widalForm label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        #widalForm input[type="text"],
+        #widalForm input[type="date"],
+        #widalForm select,
+        #widalForm textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        #widalForm input[type="text"]:focus,
+        #widalForm input[type="date"]:focus,
+        #widalForm select:focus,
+        #widalForm textarea:focus {
+            border-color: #e67e22;
+            outline: none;
+        }
+
+        #widalForm input[type="submit"] {
+            background-color: #e67e22;
+            color: #fff;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin: 0 auto;
+        }
+
+        #widalForm input[type="submit"]:hover {
+            background-color: #d35400;
+        }
+
+        #widalForm input[type="submit"] i {
+            margin-right: 8px;
+        }
+
+        #widalForm h6 {
+            color: #e67e22;
+            border-bottom: 2px solid #e67e22;
+            padding-bottom: 5px;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        #widalForm h6 i {
+            margin-right: 8px;
+        }
+
+        #widalForm label i {
+            margin-right: 5px;
+            color: #e67e22;
+        }
+    </style>
+</head>
+<body>
+    <div id="widalForm">
+        <header>
+            <h2><i class="fas fa-virus"></i> WIDAL TEST</h2>
+        </header>
+        <form action="/pathologylab-main/submit_widalTest.php" method="post">
+            <div class="form-row">
+                <div class="form-column">
+                    <label for="patient-name"><i class="fas fa-user"></i> Patient Name <span class="text-danger" style="color:#FD3535;">*</span></label>
+                    <input type="text" id="patient-name" name="patient-name" required>
+                    <label for="uhid"><i class="fas fa-id-card"></i> UHID <span class="text-danger" style="color:#FD3535;">*</span></label>
+                    <input type="text" id="uhid" name="uhid" required>
+                    <label for="refBy"><i class="fas fa-user-md"></i> REF. BY</label>
+                    <input type="text" name="refBy" id="refBy">
+                </div>
+                <div class="form-column">
+                    <label for="age"><i class="fas fa-calendar-alt"></i> Age <span class="text-danger" style="color:#FD3535;">*</span></label>
+                    <input type="text" id="age" name="age" required>
+                    <label for="date"><i class="fas fa-calendar-day"></i> Date <span class="text-danger" style="color:#FD3535;">*</span></label>
+                    <input type="date" id="date" name="date" required>
+                    <label for="material"><i class="fas fa-vial"></i> Material <span class="text-danger" style="color:#FD3535;">*</span></label>
+                    <input type="text" id="material" name="material" required>
+                    <label for="gender"><i class="fas fa-venus-mars"></i> Gender <span class="text-danger" style="color:#FD3535;">*</span></label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-column">
+                    <h6><i class="fas fa-microscope"></i> Glucose Levels</h6>
+                    <label for="glucoseF"><i class="fas fa-tint"></i> GLUCOSE F</label>
+                    <input type="text" name="glucoseF" id="glucoseF">
+                    <label for="glucose2hr"><i class="fas fa-clock"></i> GLUCOSE 2HR</label>
+                    <input type="text" name="glucose2hr" id="glucose2hr">
+                    <label for="glucoseRandom"><i class="fas fa-sugar-cube"></i>GLUCOSE RANDOM</label>
+                    <input type="text" id="glucoseRandom" name="glucoseRandom">
+                    <label for="uric-acid"><i class="fas fa-prescription-bottle"></i>URIC ACID</label>
+                    <input type="text" id="uric-acid" name="uric-acid">
+
+                    <label for="details" class="form-label"><i class="fas fa-info-circle"></i> Details</label>
+                    <textarea class="form-control" id="details" name="details" rows="20">
+
+                    S E R U M   F O R   W I D A L   T E S T
+
+                    SERUM DILUTION
+                    1:20, 1:40, 1:80, 1:160, 1.320
+
+                    SALMONELLA TYPHI   "O"  =     -      -     -      -      - 
+
+                    SALMONELLA TYPHI   "H"  =     -      -     -      -      -  
+
+                    SALMONELLA PARATYPHI "A (H)"   =     -     -      -      -       -  
+
+                    SALMONELLA PARATYPHI "B (H)"   =     -     -      -      -       -  
+
+                    N.B.:- NEGATIVE  (-).  
+
+                    POSITIVE   (+).
+
+                    -: END OF REPORT :-
+
+                    </textarea>
+            </div>
+            </div>
+            <input type="submit" class="submit">
+        </form>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('widalForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                var formData = new FormData(this);
+        
+                fetch('submit_widalTest.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        // Display success message
+                        var successMessage = document.createElement('div');
+                        successMessage.classList.add('success-message');
+                        successMessage.textContent = data.message;
+                        document.getElementById('widalForm').appendChild(successMessage);
+                    } else {
+                        // Display error message
+                        alert(data.message);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            });
+        });
+        </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

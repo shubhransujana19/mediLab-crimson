@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRP</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f7f9fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.crpForm {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    width: 100%;
+    animation: slide-up 0.5s ease-out;
+}
+
+.header {
+    background-color: #ff6f61;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h2 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+}
+
+.header .icons {
+    font-size: 24px;
+}
+
+.header:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"%3E%3Cpath fill="%23ff6f61" d="M0 0h200v200H0z"/%3E%3Cpath fill="none" stroke="%23fff" stroke-width="2" d="M20 20h160v160H20z"/%3E%3C/svg%3E');
+    background-size: 60px 60px;
+    opacity: 0.2;
+    z-index: 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.form-group label i,
+.form-group label img {
+    margin-right: 8px;
+    color: #ff6f61;
+    width: 20px;
+    height: 20px;
+}
+
+.form-control {
+    border-color: #ddd;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #ff6f61;
+    box-shadow: 0 0 0 3px rgba(255, 111, 97, 0.2);
+}
+
+textarea.form-control {
+    resize: vertical;
+}
+
+.btn-primary {
+    background-color: #ff6f61;
+    border-color: #ff6f61;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #ff5449;
+    border-color: #ff5449;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary i {
+    margin-right: 8px;
+}
+
+/* Animations */
+@keyframes slide-up {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* SVG Icons */
+.drop-icon {
+    width: 30px;
+    height: 30px;
+    fill: #fff;
+    animation: drop-pulse 2s infinite;
+}
+
+.test-tube-icon {
+    width: 20px;
+    height: 20px;
+    fill: #ff6f61;
+}
+
+@keyframes drop-pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+</style>
+
+</head>
+<body>
+    <div class="crpForm">
+        <div class="header">
+            <h2> C-Reactive Protein Test</h2>
+            <div class="icons">
+                <i class="bi bi-file-earmark-medical-fill"></i>
+            </div>
+        </div>
+        <form action="/pathologylab-main/submit_crp.php" method="post">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="patient-name" class="form-label"><i class="bi bi-person-fill"></i> Patient Name <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="patient-name" name="patient-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="uhid" class="form-label"><i class="bi bi-hash"></i> UHID <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="uhid" name="uhid" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="refBy" class="form-label"><i class="bi bi-person-fill"></i> REF. BY</label>
+                        <input type="text" class="form-control" id="refBy" name="refBy">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="age" class="form-label"><i class="bi bi-calendar-date"></i> Age <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="age" name="age" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date" class="form-label"><i class="bi bi-calendar-event"></i> Date <span class="text-danger">*</span></label>
+                        <input type="date" class="form-control" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="material" class="form-label"><i class="fas fa-vial"></i> Material <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="material" name="material" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender" class="form-label"><i class="bi bi-gender-ambiguous"></i> Gender <span class="text-danger">*</span></label>
+                        <select class="form-control" id="gender" name="gender" required>
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="details" class="form-label"><i class="bi bi-info-circle"></i> Details</label>
+                <textarea class="form-control" id="details" name="details" rows="8">
+S E R U M   F O R   "C.R.P"   T E S T
+
+"C.R.P." SHOWS LESS THEN 6 MG/I OF BLOOD.
+
+(NORMAL UPTO 6 MG/I OF BOOD.)
+
+    -: END OF  REPORT :-
+
+</textarea>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary"><i class="bi bi-send"></i> Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

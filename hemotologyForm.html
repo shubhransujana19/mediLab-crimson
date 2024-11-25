@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEMOTOLOGY</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f8f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        #hemotologyForm {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+        }
+
+        #hemotologyForm h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        #hemotologyForm h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #4CAF50;
+            border-radius: 2px;
+        }
+
+        #hemotologyForm header {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .header-column {
+            width: 49%;
+        }
+
+        .form-column {
+            display: inline-block;
+            width: 49%;
+            vertical-align: top;
+        }
+
+        #hemotologyForm label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        #hemotologyForm input[type="text"],
+        #hemotologyForm input[type="date"],
+        #hemotologyForm select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        #hemotologyForm input[type="text"]:focus,
+        #hemotologyForm input[type="date"]:focus,
+        #hemotologyForm select:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+
+        #hemotologyForm input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin: 0 auto;
+        }
+
+        #hemotologyForm input[type="submit"]:hover {
+            background-color: #4CAF50;
+        }
+
+        #hemotologyForm input[type="submit"] i {
+            margin-right: 8px;
+        }
+
+        #hemotologyForm label i {
+            margin-right: 5px;
+            color: #af4c65;
+        }
+    </style>
+</head>
+<body>
+    <div id="hemotologyForm">
+        <form action="/pathologylab-main/submit_hemotology.php" method="post">
+            <h2><i class="fas fa-microscope"></i> HEMOTOLOGY</h2>
+
+            <header>
+                <div class="header-column">
+                    <label for="patient-name"><i class="fas fa-user"></i> Patient Name</label>
+                    <input type="text" id="patient-name" name="patient-name" required>
+                    <label for="uhid"><i class="fas fa-id-card"></i> UHID</label>
+                    <input type="text" id="uhid" name="uhid" required>
+                    <label for="refBy"><i class="fas fa-user-md"></i> REF. BY</label>
+                    <input type="text" name="refBy" id="refBy">
+                    <label for="age"><i class="fas fa-calendar-alt"></i> Age</label>
+                    <input type="text" id="age" name="age" required>
+                </div>
+                <div class="header-column">
+                    <label for="date"><i class="fas fa-calendar-day"></i> Date</label>
+                    <input type="date" id="date" name="date" required>
+                    <label for="material"><i class="fas fa-vial"></i> Material</label>
+                    <input type="text" id="material" name="material" required>
+                    <label for="gender"><i class="fas fa-venus-mars"></i> Gender</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+            </header>
+                        
+            <div class="form-column">
+                <label for="haemoglobin">HAEMOGLOBIN</label>
+                <input type="text" name="haemoglobin" id="haemoglobin">
+                <label for="blood-cell-count">BLOOD CELL COUNT</label>
+                <input type="text" name="blood-cell-count" id="blood-cell-count">
+                <label for="packed-cell-volume">PACKED CELL VOLUME</label>
+                <input type="text" name="packed-cell-volume" id="packed-cell-volume">
+                <label for="corpuscular-volume">CORPUSCULAR VOLUME</label>
+                <input type="text" name="corpuscular-volume" id="corpuscular-volume">
+                <label for="corpuscular-haemoglobin">CORPUSCULAR HAEMOGLOBIN </label>
+                <input type="text" name="corpuscular-haemoglobin" id="corpuscular-haemoglobin">
+                <label for="corpuscular-haemoglobin-coro">CORPUSCULAR HAEMOGLOBIN CORO</label>
+                <input type="text" name="corpuscular-haemoglobin-coro" id="corpuscular-haemoglobin-coro">
+                <label for="platelet-count">PLATELET COUNT</label>
+                <input type="text" name="platelet-count" id="platelet-count">
+            <!-- </div>
+
+            <div class="form-column"> -->
+                <label for="white-blood-cell-count">WHITE BLOOD CELL COUNT</label>
+                <input type="text" name="white-blood-cell-count" id="white-blood-cell-count">
+                <label for="d-white-blood-cell-count">D. WHITE BLOOD CELL COUNT</label>
+                <input type="text" name="d-white-blood-cell-count" id="d-white-blood-cell-count">
+                <label for="neutrophils">NEUTROPHILS</label>
+                <input type="text" name="neutrophils" id="neutrophils">
+                <label for="lymphocytes">LYMPHOCYTES</label>
+                <input type="text" name="lymphocytes" id="lymphocytes">
+                <label for="monocytes">MONOCYTES</label>
+                <input type="text" name="monocytes" id="monocytes">
+                <label for="eosinophils">EOSINOPHILS</label>
+                <input type="text" name="eosinophils" id="eosinophils">
+            </div>
+
+            <div class="form-column">
+                <label for="basophils">BASOPHILS</label>
+                <input type="text" name="basophils" id="basophils">
+                <label for="malaria-parasistes">MALARIA PARASITES</label>
+                <input type="text" name="malaria-parasistes" id="malaria-parasistes">
+                <label for="abnormal-cells">ABNORMAL CELLS</label>
+                <input type="text" name="abnormal-cells" id="abnormal-cells">
+                <label for="reticulocyte-count">RETICULOCYTE COUNT</label>
+                <input type="text" name="reticulocyte-count" id="reticulocyte-counts">
+                <label for="blood-group-abo-system">BLOOD GROUP (ABO SYSTEM)</label>
+                <input type="text" name="blood-group-abo-system" id="blood-group-abo-system">
+                <label for="rh-factor">RH (FACTOR)</label>
+                <input type="text" name="rh-factor" id="rh-factor">
+            <!-- </div>
+
+            <div class="form-column"> -->
+                <label for="bleeding-time">BLEEDING TIME</label>
+                <input type="text" name="bleeding-time-min" id="bleeding-time-min" placeholder="Min">
+                <input type="text" name="bleeding-time-sec" id="bleeding-time-sec" placeholder="Sec">
+
+                <label for="coagulation-time">COAGULATION TIME</label>
+                <input type="text" name="coagulation-time-min" id="coagulation-time-min" placeholder="Min">
+                <input type="text" name="coagulation-time-sec" id="coagulation-time-sec" placeholder="Sec">
+                
+                <label for="esr-westergreen-method">ESR (WESTERGREEN METHOD)</label>
+                <label for="1st-hr">1ST HR. </label>
+                <input type="text" name="1st-hr" id="1st-hr">
+                <label for="2nd-hr">2ND HR. </label>
+                <input type="text" name="2nd-hr" id="2nd-hr">
+                <label for="mean">MEAN </label>
+                <input type="text" name="mean" id="mean">
+            </div>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>

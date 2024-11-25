@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SERUM DILUTION</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+        <style>
+          body {
+              font-family: 'Poppins', sans-serif;
+              background-color: #f0f2f5;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              min-height: 100vh;
+          }
+  
+          #serum-dilution {
+              background-color: #fff;
+              padding: 30px;
+              border-radius: 10px;
+              box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+              max-width: 900px;
+              width: 100%;
+          }
+  
+          #serum-dilution header {
+              background-color: #AD35FD;
+              color: #fff;
+              padding: 20px;
+              border-radius: 8px;
+              margin-bottom: 30px;
+              text-align: center;
+              position: relative;
+              overflow: hidden;
+          }
+  
+          #serum-dilution header h2 {
+              margin: 0;
+              font-size: 32px;
+              font-weight: 600;
+              position: relative;
+              z-index: 1;
+          }
+  
+          #serum-dilution header:before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"%3E%3Cpath fill="%231abc9c" d="M0 0h200v200H0z"/%3E%3Cpath fill="none" stroke="%23fff" stroke-width="2" d="M20 20h160v160H20z"/%3E%3C/svg%3E');
+              background-size: 60px 60px;
+              opacity: 0.2;
+              z-index: 0;
+          }
+  
+          #serum-dilution .form-row {
+              display: flex;
+              flex-wrap: wrap;
+              margin-bottom: 20px;
+          }
+  
+          #serum-dilution .form-column {
+              flex: 1;
+              padding: 0 15px;
+          }
+  
+          #serum-dilution label {
+              display: block;
+              font-weight: 600;
+              margin-bottom: 8px;
+              color: #555;
+          }
+  
+          #serum-dilution input[type="text"],
+          #serum-dilution input[type="date"],
+          #serum-dilution select,
+          #serum-dilution textarea {
+              width: 100%;
+              padding: 12px;
+              border: 1px solid #ddd;
+              border-radius: 6px;
+              box-sizing: border-box;
+              font-size: 14px;
+              transition: border-color 0.3s ease;
+          }
+  
+          #serum-dilution input[type="text"]:focus,
+          #serum-dilution input[type="date"]:focus,
+          #serum-dilution select:focus,
+          #serum-dilution textarea:focus {
+              border-color: #AD35FD;
+              outline: none;
+          }
+  
+          #serum-dilution input[type="submit"] {
+              background-color: #AD35FD;
+              color: #fff;
+              border: none;
+              padding: 14px 30px;
+              border-radius: 6px;
+              cursor: pointer;
+              font-size: 16px;
+              transition: background-color 0.3s ease;
+              display: block;
+              margin: 0 auto;
+          }
+  
+          #serum-dilution input[type="submit"]:hover {
+              background-color: #AD35FD;
+          }
+  
+          #serum-dilution input[type="submit"] i {
+              margin-right: 8px;
+          }
+  
+          #serum-dilution h6 {
+              color: #1abc9c;
+              border-bottom: 2px solid #AD35FD;
+              padding-bottom: 5px;
+              font-size: 18px;
+              font-weight: 600;
+              margin-bottom: 15px;
+              display: flex;
+              align-items: center;
+          }
+  
+          #serum-dilution h6 i {
+              margin-right: 8px;
+          }
+  
+          #serum-dilution label i {
+              margin-right: 5px;
+              color: #AD35FD;
+          }
+
+
+      </style>
+      
+    
+    </head>
+    <body>
+        <div id="serum-dilution">
+            <header>
+                <h2>
+                  <i class="fas fa-vial"></i> SERUM DILUTION</h2>
+            </header>
+
+            <form action="/pathologylab-main/submit_serum.php" method="post">
+              <div class="form-row">
+                  <div class="form-column">
+                      <label for="patient-name"><i class="fas fa-user"></i> Patient Name <span class="text-danger" style="color:#FD3535;">*</span></label>
+                      <input type="text" id="patient-name" name="patient-name" required>
+                      <label for="uhid"><i class="fas fa-id-card"></i> UHID <span class="text-danger" style="color:#FD3535;">*</span></label>
+                      <input type="text" id="uhid" name="uhid" required>
+                      <label for="refBy"><i class="fas fa-user-md"></i> REF. BY</label>
+                      <input type="text" name="refBy" id="refBy">
+                      <label for="age"><i class="fas fa-calendar-alt"></i> Age <span class="text-danger" style="color:#FD3535;">*</span></label>
+                      <input type="text" id="age" name="age" required>
+                  </div>
+                  <div class="form-column">
+                      <label for="date"><i class="fas fa-calendar-day"></i> Date <span class="text-danger" style="color:#FD3535;">*</span></label>
+                      <input type="date" id="date" name="date" required>
+                      <label for="material"><i class="fas fa-vial"></i> Material <span class="text-danger" style="color:#FD3535;">*</span></label>
+                      <input type="text" id="material" name="material" required>
+                      <label for="gender"><i class="fas fa-venus-mars"></i> Gender <span class="text-danger" style="color:#FD3535;">*</span></label>
+                      <select id="gender" name="gender" required>
+                          <option value="">Select Gender</option>
+                          <option value="male">Male</option>
+                          <option value="female">Female</option>
+                      </select>
+                  </div>
+              </div>
+      
+            <div class="form-row">
+              <div class="form-column">
+                <label for="details" class="form-label"><i class="fas fa-info-circle"></i> Details</label>
+                <textarea class="form-control" id="details" name="details" cols="100" rows="15">
+            S E R U M   F O R   W I D A L   T E S T
+    
+                      SERUM DILUTION
+            1:20, 1:40, 1:80, 1:160, 1.320
+       
+            SALMONELLA TYPHI        O    =      -     -      -    -    -   
+    
+            SALMONELLA TYPHI        H    =      -     -      -    -    -  
+    
+            SALMONELLA PARATYPHI A (H)       =      -     -      -    -    -  
+    
+            SALMONELLA PARATYPHI B (H)       =      -     -      -    -    - 
+     
+                  </textarea>
+    
+              </div>
+            </div>
+            <p>&nbsp;</p>
+            <input type="submit" class="submit">
+
+
+    </form>
+        </div>
+        </body>
+        </html>
